@@ -1,0 +1,139 @@
+<?php ob_start() ?>
+<div class="container">
+    <h1 class="well">Personal Info</h1>
+    <div class="col-lg-12 well">
+        <div class="row">       
+            <div class="col-sm-12">
+            <?php foreach($results as $result): ?>      
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <label>Name</label><br>
+                            <?= htmlentities($result['name'])?>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                                <label>Phone Number</label><br>
+                                <?= htmlentities($result['phone'])?>
+                        </div>      
+                        <div class="col-sm-6 form-group">
+                            <label>Email Address</label><br>
+                            <?= htmlentities($result['email'])?>
+                        </div>
+                    </div>  
+                    <div class="row">                                                   
+                        <div class="col-sm-6 form-group">
+                        <?php if ($result['kuripp'] != NULL): ?>
+                            <a href = "http://marriagelane.local/<?=htmlentities($result['resume'])?>" target="_blank"><button type="button" class=" btn-danger"> download kuripp </button></a>
+                        <?php endif ?>
+                        </div>  
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <label>Address</label><br>
+                            <?= htmlentities($result['address'])?>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                                <label>Date of birth</label><br>
+                                <?= htmlentities($result['dob'])?>
+                        </div>      
+                        <div class="col-sm-3 form-group">
+                            <label>Star</label><br>
+                            <?= htmlentities($result['star'])?>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                                <label>Gender</label><br>
+                                <?= htmlentities($result['sex'])?>
+                        </div>      
+                        <div class="col-sm-3 form-group">
+                            <label>Blood Group</label><br>
+                            <?= htmlentities($result['bgroup'])?>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                                <label>Religion</label><br>
+                                <?= htmlentities($result['religion'])?>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                                <label>Shishtadasha</label><br>
+                                <?= htmlentities($result['shishtadhasa'])?>
+                        </div>      
+                        <div class="col-sm-3 form-group">
+                            <label>Height</label><br>
+                            <?= htmlentities($result['height'])?>
+                        </div>    
+                        <div class="col-sm-3 form-group">
+                            <label>Colour</label><br>
+                            <?= htmlentities($result['color'])?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                                <label>Educational Qualification</label><br>
+                                <?= htmlentities($result['educational'])?>
+                        </div>  
+                        <div class="col-sm-3 form-group">
+                                <label>Job</label><br>
+                                <?= htmlentities($result['job'])?>
+                        </div>      
+                        <div class="col-sm-3 form-group">
+                            <label>Salary</label><br>
+                            <?= htmlentities($result['salary'])?>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Jathakaporutham</label><br>
+                            <?= htmlentities($result['horscop_simlr'])?>
+                        </div>      
+                        <div class="col-sm-6 form-group">
+                            <label>Father's Name</label><br>
+                            <?= htmlentities($result['fathername'])?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                                <label>Father's Ocupation</label><br>
+                                <?= htmlentities($result['father_occupation'])?>
+                        </div>      
+                        <div class="col-sm-6 form-group">
+                            <label>Mother's Name</label><br>
+                            <?= htmlentities($result['mothername'])?>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                                <label>Mohter's address</label><br>
+                                <?= htmlentities($result['motheraddr'])?>
+                        </div>      
+                        <div class="col-sm-6 form-group">
+                            <label>kuripp Time</label><br>
+                            <?= htmlentities($result['kuripp_time'])?>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Jathaka nila</label><br>
+                            <?= htmlentities($result['horscop_status'])?>
+                        </div>      
+                        <div class="col-sm-6 form-group">
+                            <label>Number of Brother</label><br>
+                            <?= htmlentities($result['no_br'])?>
+                        </div>
+                    </div>  
+                    <div class="row">  
+                        <div class="col-sm-6 form-group">
+                            <label>Number of sister</label><br>
+                            <?= htmlentities($result['no_br'])?>
+                        </div>
+                    </div> 
+                <?php endforeach; ?>                                                                    
+            </div>
+        </div>
+    </div>
+</div>
+<?php $content = ob_get_clean() ?>
+<?php include 'layout.tpl.php' ?>
