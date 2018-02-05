@@ -169,7 +169,7 @@ class AdminController extends Database {
 		$result = $this->query_execute($query,$arr);
 		$id = $this->lastId;
 		$query = "UPDATE `other_det` SET `star`=:star,`shishtadhasa`=:shishtadhasa,`height`=:height,`color`=:color,`bgroup`=:bgroup,`body_type`=:body_type,`other_health_det`=:other_health_det,`educational`=:educational,`job`=:job,`horscop_simlr`=:horscop_simlr,`economical`=:economical,`horscop_status`=:horscop_status,`fathername`=:fathername,`father_occupation`=:father_occupation,`salary`=:salary,`mothername`=:mothername,`motheraddr`=:motheraddr,`no_br`=:no_br,`no_sis`=:no_sis,`kuripp_time`=:kuripp_time WHERE `userid`=:userid";
-		$earr = array(
+		$arr = array(
 			':userid' => $id,
 			':star' => $_POST['star'],
 			':shishtadhasha' => $_POST['shishtadhasha'],
@@ -195,4 +195,22 @@ class AdminController extends Database {
 		$this->upload_img();
 		header("Location:http://marriagelane.local/");
 	}
+
+	public function filter(){
+		require_once 'filterpeople.tpl.php';
+	}
+	public function filtered(){
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sex=:sex AND c.age=:age AND c.religion=:religion AND o.star=:star AND o.horscop_simlr=:Jathakam AND o.horscop_status=:horscop_status AND o.economical=:economical";
+		$arr = array(
+			':star' => $_POST['star'],
+			':age' => $_POST['age'],
+			':religion' => $_POST['caste'],
+			':star' => $_POST['star'],
+			':Jathakam' => $_POST['Jathakam'],
+			':economical' => $_POST['economical'],
+			':horscop_status' => $_POST['horscop_status']
+		);
+		$result = $this->query_execute($query, $arr);
+		return $result;
+	}	
 }
