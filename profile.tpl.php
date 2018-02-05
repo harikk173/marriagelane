@@ -45,7 +45,10 @@
                         </div>
                         <div class="col-sm-3 form-group">
                                 <label>Gender</label><br>
-                                <?= htmlentities($result['sex'])?>
+                                <?php if($result['sex'] == 1) { 
+                                 ?>Male<?php }else{?>Female
+                                    <?php }?>
+
                         </div>      
                         <div class="col-sm-3 form-group">
                             <label>Blood Group</label><br>
