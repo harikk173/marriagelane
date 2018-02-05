@@ -14,29 +14,37 @@ require 'controller.class.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $Controller = new AdminController;
-if ('/' == $uri) {
+if ('/' == $uri && isset($_SESSION['id'])) {
   
   //show home page or login page
   $Controller->homepage();
 } 
+
+elseif ('/' == $uri) {
+  
+  //show home page or login page
+  require 'login.tpl.php';
+} 
+
 elseif ('/admin/' == $uri) {
   //show home page or login page
+  $a = $_POST['password'];
   $Controller->login();
 }
-elseif ('/showprofile' == $uri) {
+elseif ('/showprofile' == $uri && isset($_SESSION['admin'])) {
   //show home page or login page
   $Controller->profile();
 }
-elseif ('/add' == $uri) {
+elseif ('/add' == $uri && isset($_SESSION['id'])) {
   //show home page or login page
   require_once 'addpeople.tpl.php';
 }
-elseif ('/new_registration' == $uri) {
+elseif ('/new_registration' == $uri && isset($_SESSION['id'])) {
   //show home page or login page
   $Controller->insert();
 }
-elseif ('/logout') {
-  $Controller->profile();
+elseif ('/logout' == $uri) {
+  $Controller->logout();
 }
 else {
   

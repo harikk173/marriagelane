@@ -22,8 +22,8 @@ class AdminController extends Database {
 			$candidates = $this->get_all_candidates();
 			require 'homepage.tpl.php';
 		}
-		elseif (isset($_POST['user'])){
-			$this->login();
+		elseif (isset($_SESSION['user'])){
+			header("Location:http://marriagelane.local/add");
 		}
 		else {
 			require 'login.tpl.php';
@@ -37,8 +37,15 @@ class AdminController extends Database {
         $query = "SELECT * FROM `admin_users` WHERE username=:username AND password=:password";
         $result = $this->query_execute($query,$arr);
         $results = $result[0];
-        $_SESSION['id'] = $results['id'];
-        $_SESSION['admin'] = $results['name'];
+		$_SESSION['id'] = $results['id'];
+		if($results['name'] == 'Administrator')
+		{
+			$_SESSION['admin'] = $results['name'];
+		}
+		else
+		{
+			$_SESSION['user'] = $results['name'];
+		}
         header("Location:http://marriagelane.local/");
 	}
 
@@ -51,7 +58,7 @@ class AdminController extends Database {
 
 	public function get_all_candidates(){
 		$query = "SELECT * FROM `candidates`";
-		$result = $this->query_execute($query,$arr);
+		$result = $this->query_execute($query, $arr);
 		return $result;
 	}
 	public function profile(){

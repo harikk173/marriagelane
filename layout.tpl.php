@@ -37,7 +37,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="/admin/" class="navbar-brand"><b>Marriage</b>lane</a>
+          <a href="/" class="navbar-brand"><b>Marriage</b>lane</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -50,33 +50,36 @@
               </a>
             </li>
             </li>
-            <!-- User Account Menu -->
-            <li class="dropdown user user-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- The user image in the navbar-->
-                <img src="http://marriagelane.local/dist/img/avatar.png" class="user-image" alt="User Image">
-                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs"><?=$_SESSION['admin']?></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                  <img src="http://marriagelane.local/dist/img/avatar.png" class="img-circle" alt="User Image">
+            <?php if(isset($_SESSION['admin'])):?>
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="http://marriagelane.local/dist/img/avatar.png" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs"><?=$_SESSION['admin']?></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="http://marriagelane.local/dist/img/avatar.png" class="img-circle" alt="User Image">
 
-                  <p>
-                    <?=$_SESSION['admin']?>
-                  </p>
-                </li>
-                <!-- Menu Body -->
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="/" class="btn btn-default btn-flat">Home</a>
-                  </div>
-                  <div class="pull-left">
-                    <a href="/add" class="btn btn-default btn-flat">Add</a>
-                  </div>
+                    <p>
+                      <?=$_SESSION['admin']?>
+                    </p>
+                  
+                  </li>
+                  <!-- Menu Body -->
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="/" class="btn btn-default btn-flat">Home</a>
+                    </div>
+                    <div class="pull-left">
+                      <a href="/add" class="btn btn-default btn-flat">Add</a>
+                    </div>
+            <?php endif ?>      
                   <div class="pull-right">
                     <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                   </div>
