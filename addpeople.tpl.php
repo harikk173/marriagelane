@@ -35,6 +35,13 @@
                             <option value="2">Female</option>
                         </select>
                     </div>
+                    <div class="col-sm-3 form-group">
+                        <label>പുനര്വിവാഹമാണോ </label>
+                        <select id ="sec_marr" name="sec_marr"  class="form-control">
+                            <option value="0" selected>അല്ല </option>
+                            <option value="1">അതെ</option>
+                        </select>
+                    </div>
                 </div>	
                 <div class="row">													
                     <div class="col-sm-6 form-group">
@@ -117,7 +124,10 @@
                             </div>		
                             <div class="col-sm-3 form-group">
                                 <label>Jathakapporutham</label>
-                                <input type="checkbox" id ="horscop_simlr" name="horscop_simlr">
+                                <select id ="horscop_simlr" name="horscop_simlr"  class="form-control">
+                                    <option value="0" selected>നിര്ബന്ധമില്ല </option>
+                                    <option value="1">നിർബന്ധം </option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -168,7 +178,7 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-3 form-group">
-                                <label>ഉപകരണങ്ങൾ </label>
+                                <label>Number of Brothers </label>
                                 <input type="text" id ="no_br" name="no_br"  class="form-control">
                             </div>		
                             <div class="col-sm-3 form-group">
@@ -179,6 +189,33 @@
                                 <label>Mother's Address</label>
                                 <input type="textarea" id ="motheraddr" name="motheraddr" class="form-control">
                             </div>	
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label>About Your Partner </label>
+                                <input type="textarea" id ="abt_ptnr" name="abt_ptnr"  class="form-control">
+                            </div>		
+                            <div class="col-sm-6 form-group">
+                                <label>Partner Job and Education</label>
+                                <input type="textarea" id ="ptnr_job_edu" name="ptnr_job_edu" class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Partners Economical status</label>
+                                <select id ="ptnr_eco" name="ptnr_eco"  class="form-control">
+                                    <option value="1" selected>Poor</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">Rich</option>
+                                </select>
+                            </div>	
+                            <div class="col-sm-6 form-group">
+                                <label>Second marriage Interested or not</label>
+                                <select id ="sec_interest" name="sec_interest"  class="form-control">
+                                    <option value="0" selected>അല്ല </option>
+                                    <option value="1">അതെ</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>				

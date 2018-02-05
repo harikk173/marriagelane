@@ -24,7 +24,7 @@
                     <div class="row">                                                   
                         <div class="col-sm-6 form-group">
                         <?php if ($result['kuripp'] != NULL): ?>
-                            <a href = "http://marriagelane.local/<?=htmlentities($result['resume'])?>" target="_blank"><button type="button" class=" btn-danger"> download kuripp </button></a>
+                            <a href = "http://marriagelane.local/<?=htmlentities($result['kuripp'])?>" target="_blank"><button type="button" class=" btn-danger"> download kuripp </button></a>
                         <?php endif ?>
                         </div>  
                     </div> 

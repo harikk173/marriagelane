@@ -5,6 +5,7 @@ require_once 'database.class.php';
 
 class AdminController extends Database {
 	
+	public $id;
 	//checking the login status
 	public function check_log() {
 		if (isset($_SESSION['admin'])) {
@@ -83,9 +84,11 @@ class AdminController extends Database {
 		);
 		$result = $this->query_execute($query,$arr);
 		$id = $this->lastId;
-		$query = "INSERT INTO `other_det`(`userid`, `star`, `shishtadhasa`, `height`, `color`, `bgroup`, `body_type`, `other_health_det`, `educational`, `job`, `horscop_simlr`, `economical`, `horscop_status`, `fathername`, `father_occupation`, `salary`, `mothername`, `motheraddr`, `no_br`, `no_sis`,`kuripp`, `kuripp_time`) VALUES (:userid,:star,:shishtadhasa,:height,:color,:bgroup,:body_type,:other_health_det,:educational,:job,:horscop_simlr,:economical,:horscop_status,:fathername,:father_occupation,:salary,:mothername,:motheraddr,:no_br,:no_sis,:kuripp,:kuripp_time)";
+		$query = "INSERT INTO `other_det`(`userid`, `app_date`, `sec_marr`, `star`, `shishtadhasa`, `height`, `color`, `bgroup`, `body_type`, `other_health_det`, `educational`, `job`, `horscop_simlr`, `economical`, `horscop_status`, `fathername`, `father_occupation`, `salary`, `mothername`, `motheraddr`, `no_br`, `no_sis`,`kuripp`, `kuripp_time`,`abt_ptnr`,`ptnr_job_edu`,`ptnr_eco`,`sec_interest`) VALUES (:userid,:app_date,:sec_marr,:star,:shishtadhasa,:height,:color,:bgroup,:body_type,:other_health_det,:educational,:job,:horscop_simlr,:economical,:horscop_status,:fathername,:father_occupation,:salary,:mothername,:motheraddr,:no_br,:no_sis,:kuripp,:kuripp_time,:abt_ptnr,:ptnr_job_edu,:ptnr_eco,:sec_interest)";
 		$arr = array(
 			':userid' => $id,
+			':app_date' => date("Y-m-d"),
+			':sec_marr' => $_POST['sec_marr'],
 			':star' => $_POST['star'],
 			':shishtadhasa' => $_POST['shishtadhasa'],
 			':height' => $_POST['height'],
@@ -107,16 +110,20 @@ class AdminController extends Database {
 			':no_sis' => $_POST['no_sis'],
 			':kuripp' => NULL,
 			':kuripp_time' => $_POST['kuripp_time'],
+			':abt_ptnr' => $_POST['abt_ptnr'],
+			':ptnr_job_edu' => $_POST['ptnr_job_edu'],
+			':ptnr_eco' => $_POST['ptnr_eco'],
+			':sec_interest' => $_POST['sec_interest'],
 		);
 		$result = $this->query_execute($query,$arr);
 		$id = $this->lastId;
-		$this->upload_img();
-		header("Location:http://marriagelane.local/");
+		$this->upload_img($id);
+		header("Location:http://marriagelane.local/add");
 	}
-	public function upload_img() {
+	public function upload_img($id) {
         
         $target_dir = "upload/";
-        $target_file = $target_dir.$this->id."_".basename($_FILES["fileToUpload"]["name"]);
+        $target_file = $target_dir.$id."_".basename($_FILES["fileToUpload"]["name"]);
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $uploadOk = 1;
 
@@ -144,7 +151,7 @@ class AdminController extends Database {
             if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file)) {
                 echo "The file ".basename($_FILES["fileToUpload"]["name"])."has been uploaded";
                 $query = "UPDATE other_det SET kuripp = :target_file WHERE id = :id";
-                $values = array(':id' => $this->id,
+                $values = array(':id' => $id,
                                 ':target_file' => $target_file);
                 $this->query_execute($query,$values);  
             // $result = $link->prepare("UPDATE login SET photo = :target_file WHERE id = :id");
