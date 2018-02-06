@@ -2,7 +2,8 @@
 <div class="container">
     <h1 class="well">Personal Info</h1>
     <div class="col-lg-12 well">
-        <div class="row">       
+        <div class="row"> 
+        <a href="/updatetemp?pid=<?=$results[0]['id']?>"><button class="btn btn-block btn-primary btn-sm"  type="button"  style="font-size:15px" >Update</button></a>
             <div class="col-sm-12">
             <?php foreach($results as $result): ?>      
                     <div class="row">

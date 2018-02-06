@@ -162,8 +162,16 @@ class AdminController extends Database {
             }
         }
 	}
-	public function insert_people() {
-		$query = "INSERT INTO `candidates`(`name`, `email`, `phone`, `address`, `dob`, `age`, `sex`, `religion`) VALUES (:name,:email,:phone,:address,:dob,:age,:sex)";
+	public function Update_profile() {
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.id=:userid";
+		$arr = array(
+			':userid' => $_GET['pid'],
+		);
+		$results = $this->query_execute($query,$arr);
+		require_once 'updatepeople.tpl.php';
+	}
+	public function Update_people() {
+		$query = "UPDATE `candidates` SET `name`=:name, `email`=:email, `phone`=:phone, `address`=:address, `dob`=:dob, `age`=:age, `sex`=:sex,`religion`=:religion)";
 		$arr = array(
 			':name' => $_POST['name'],
 			':email' => $_POST['email'],
@@ -175,11 +183,12 @@ class AdminController extends Database {
 		);
 		$result = $this->query_execute($query,$arr);
 		$id = $this->lastId;
-		$query = "UPDATE `other_det` SET `star`=:star,`shishtadhasa`=:shishtadhasa,`height`=:height,`color`=:color,`bgroup`=:bgroup,`body_type`=:body_type,`other_health_det`=:other_health_det,`educational`=:educational,`job`=:job,`horscop_simlr`=:horscop_simlr,`economical`=:economical,`horscop_status`=:horscop_status,`fathername`=:fathername,`father_occupation`=:father_occupation,`salary`=:salary,`mothername`=:mothername,`motheraddr`=:motheraddr,`no_br`=:no_br,`no_sis`=:no_sis,`kuripp_time`=:kuripp_time WHERE `userid`=:userid";
-		$earr = array(
+		$query = "UPDATE `other_det` SET `sec_marr`=:sec_marr, `star`=:star,`shishtadhasa`=:shishtadhasa,`height`=:height,`color`=:color,`bgroup`=:bgroup,`body_type`=:body_type,`other_health_det`=:other_health_det,`educational`=:educational,`job`=:job,`horscop_simlr`=:horscop_simlr,`economical`=:economical,`horscop_status`=:horscop_status,`fathername`=:fathername,`father_occupation`=:father_occupation,`salary`=:salary,`mothername`=:mothername,`motheraddr`=:motheraddr,`no_br`=:no_br,`no_sis`=:no_sis,`kuripp_time`=:kuripp_time, `abt_ptnr`=:abt_ptnr,`ptnr_job_edu`=:ptnr_job_edu,`ptnr_eco`=:ptnr_eco,`sec_interest`=:sec_interest WHERE `userid`=:userid";
+		$arr = array(
 			':userid' => $id,
+			':sec_marr' => $_POST['sec_marr'],
 			':star' => $_POST['star'],
-			':shishtadhasha' => $_POST['shishtadhasha'],
+			':shishtadhasa' => $_POST['shishtadhasa'],
 			':height' => $_POST['height'],
 			':color' => $_POST['color'],
 			':bgroup' => $_POST['bgroup'],
@@ -189,17 +198,23 @@ class AdminController extends Database {
 			':job' => $_POST['job'],
 			':horscop_simlr' => $_POST['horscop_simlr'],
 			':economical' => $_POST['economical'],
-			':horscp_status' => $_POST['horscp_status'],
+			':horscop_status' => $_POST['horscop_status'],
 			':fathername' => $_POST['father_occupation'],
+			':father_occupation' => $_POST['father_occupation'],
 			':salary' => $_POST['salary'],
 			':mothername' => $_POST['mothername'],
-			':matheraddr' => $_POST['matheraddr'],
+			':motheraddr' => $_POST['motheraddr'],
 			':no_br' => $_POST['no_br'],
 			':no_sis' => $_POST['no_sis'],
 			':kuripp_time' => $_POST['kuripp_time'],
+			':abt_ptnr' => $_POST['abt_ptnr'],
+			':ptnr_job_edu' => $_POST['ptnr_job_edu'],
+			':ptnr_eco' => $_POST['ptnr_eco'],
+			':sec_interest' => $_POST['sec_interest'],
 		);
 		$result = $this->query_execute($query,$arr);
-		$this->upload_img();
+		$id = $this->lastId;
+		$this->upload_img($id);
 		header("Location:http://marriagelane.local/");
 	}
 }

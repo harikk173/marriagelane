@@ -35,6 +35,14 @@ elseif ('/showprofile' == $uri && isset($_SESSION['admin'])) {
   //show home page or login page
   $Controller->profile();
 }
+elseif ('/updatetemp' == $uri && isset($_SESSION['admin'])) {
+  //show home page or login page
+  $Controller->Update_profile();
+}
+elseif ('/update' == $uri && isset($_SESSION['admin'])) {
+  //show home page or login page
+  $Controller->Update_people();
+}
 elseif ('/add' == $uri && isset($_SESSION['id'])) {
   //show home page or login page
   require_once 'addpeople.tpl.php';
