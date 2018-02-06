@@ -7,7 +7,9 @@
     Full list
   </h1>
 </section>
-
+<a  class="btn btn-success" href="/filt_male">Groom</a>
+<a  class="btn btn-success" href="/filt_female">Bride</a>
+<a  class="btn btn-success" href="/filt_punnarvivaham">PunnarVivaham</a>
 <!-- Main content -->
 <section class="content">
   <div class="row">
