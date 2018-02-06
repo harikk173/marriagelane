@@ -87,7 +87,7 @@ class AdminController extends Database {
 		$query = "INSERT INTO `other_det`(`userid`, `app_date`, `sec_marr`, `star`, `shishtadhasa`, `height`, `color`, `bgroup`, `body_type`, `other_health_det`, `educational`, `job`, `horscop_simlr`, `economical`, `horscop_status`, `fathername`, `father_occupation`, `salary`, `mothername`, `motheraddr`, `no_br`, `no_sis`,`kuripp`, `kuripp_time`,`abt_ptnr`,`ptnr_job_edu`,`ptnr_eco`,`sec_interest`) VALUES (:userid,:app_date,:sec_marr,:star,:shishtadhasa,:height,:color,:bgroup,:body_type,:other_health_det,:educational,:job,:horscop_simlr,:economical,:horscop_status,:fathername,:father_occupation,:salary,:mothername,:motheraddr,:no_br,:no_sis,:kuripp,:kuripp_time,:abt_ptnr,:ptnr_job_edu,:ptnr_eco,:sec_interest)";
 		$arr = array(
 			':userid' => $id,
-			':app_date' => date("Y-m-d"),
+			':app_date' => "2017-01-01",
 			':sec_marr' => $_POST['sec_marr'],
 			':star' => $_POST['star'],
 			':shishtadhasa' => $_POST['shishtadhasa'],
@@ -113,7 +113,7 @@ class AdminController extends Database {
 			':abt_ptnr' => $_POST['abt_ptnr'],
 			':ptnr_job_edu' => $_POST['ptnr_job_edu'],
 			':ptnr_eco' => $_POST['ptnr_eco'],
-			':sec_interest' => $_POST['sec_interest'],
+			':sec_interest' => $_POST['sec_interest']
 		);
 		$result = $this->query_execute($query,$arr);
 		$id = $this->lastId;
@@ -227,12 +227,23 @@ class AdminController extends Database {
 			':star' => $_POST['star'],
 			':age' => $_POST['age'],
 			':religion' => $_POST['caste'],
-			':star' => $_POST['star'],
+			':sex' => $_POST['sex'],
 			':Jathakam' => $_POST['Jathakam'],
 			':economical' => $_POST['economical'],
 			':horscop_status' => $_POST['horscop_status']
 		);
-		$result = $this->query_execute($query, $arr);
-		return $result;
+		$candidates = $this->query_execute($query, $arr);
+		require_once 'filterpeople.tpl.php';
+	}	
+
+	public function delete(){
+		$query = "DELETE  FROM `candidates` WHERE id=:userid";
+		$arr = array(':userid' => $_GET['pid']);
+		$this->query_execute($query, $arr);
+		$query1 = "DELETE  FROM `other_det` WHERE userid=:userid";
+		$arra = array(':userid' => $_GET['pid']);
+		$this->query_execute($query1, $arra);
+		$candidates = $this->get_all_candidates();
+		require 'homepage.tpl.php';
 	}	
 }

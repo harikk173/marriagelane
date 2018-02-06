@@ -137,6 +137,7 @@
                 <?php endforeach; ?>                                                                    
             </div>
         </div>
+        <a  class="btn btn-danger" href="/delete?pid=<?php echo $_GET['pid']?>">Delete</a>
     </div>
 </div>
 <?php $content = ob_get_clean() ?>

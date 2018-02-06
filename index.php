@@ -57,6 +57,9 @@ elseif('/filter' == $uri && isset($_SESSION['admin'])){
 elseif('/filtered' == $uri && isset($_SESSION['admin'])){
   $Controller->filtered();
 }
+elseif('/delete' == $uri && isset($_SESSION['admin'])){
+  $Controller->delete();
+}
 elseif ('/logout' == $uri) {
   $Controller->logout();
 }
