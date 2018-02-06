@@ -14,8 +14,8 @@
         <input type="text" placeholder="enter the religion" id ="caste" name="caste"  class="form-control" required>
     <label>Jathakapporutham</label>
         <select id ="Jathakam" name="Jathakam"  class="form-control">
-            <option value="1" selected>yes</option>
-            <option value="2">no</option>
+            <option value="0" selected>no</option>
+            <option value="1">yes</option>
         </select>
     <label>star</label>
     <select id ="star" name="star"  class="form-control">

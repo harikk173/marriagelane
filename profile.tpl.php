@@ -3,7 +3,7 @@
     <h1 class="well">Personal Info</h1>
     <div class="col-lg-12 well">
         <div class="row"> 
-        <a href="/updatetemp?pid=<?=$results[0]['id']?>"><button class="btn btn-block btn-primary btn-sm"  type="button"  style="font-size:15px" >Update</button></a>
+        <a href="/updatetemp?pid=<?=$_GET['pid']?>"><button class="btn btn-block btn-primary btn-sm"  type="button"  style="font-size:15px" >Update</button></a>
             <div class="col-sm-12">
             <?php foreach($results as $result): ?>      
                     <div class="row">
@@ -71,7 +71,7 @@
                         </div>    
                         <div class="col-sm-3 form-group">
                             <label>Colour</label><br>
-                            <?= htmlentities($result['color'])?>
+                            <?php if($result['color'] == 1) {?>White<?php }elseif($result['color'] == 2){?> Dual tone<?php }else{?> Black<?php }?>
                         </div>
                     </div>
                     <div class="row">
@@ -91,7 +91,9 @@
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label>Jathakaporutham</label><br>
-                            <?= htmlentities($result['horscop_simlr'])?>
+                            <?php if($result['horscop_simlr'] == 0) { 
+                                 ?>നിര്ബന്ധമില്ല<?php }else{?>നിർബന്ധം
+                                    <?php }?>
                         </div>      
                         <div class="col-sm-6 form-group">
                             <label>Father's Name</label><br>
@@ -121,7 +123,7 @@
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label>Jathaka nila</label><br>
-                            <?= htmlentities($result['horscop_status'])?>
+                            <?php if($result['horscop_status'] == 1) {?>Normal<?php }elseif($result['horscop_status'] == 2){?> Shudham<?php }else{?> Dhosham<?php }?>
                         </div>      
                         <div class="col-sm-6 form-group">
                             <label>Number of Brother</label><br>
@@ -131,12 +133,42 @@
                     <div class="row">  
                         <div class="col-sm-6 form-group">
                             <label>Number of sister</label><br>
-                            <?= htmlentities($result['no_br'])?>
+                            <?= htmlentities($result['no_sis'])?>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Echonomical Status</label><br>
+                            <?php if($result['economical'] == 1) {?>Poor<?php }elseif($result['economical'] == 2){?> Medium<?php }else{?> Rich<?php }?>
+                        </div>
+                    </div> 
+                    <div class="row">  
+                        <div class="col-sm-6 form-group">
+                            <label>About your Partner</label><br>
+                            <?= htmlentities($result['abt_ptnr'])?>
+                        </div>
+                    </div> 
+                    <div class="row">  
+                        <div class="col-sm-6 form-group">
+                            <label>Partner Job and Education</label><br>
+                            <?= htmlentities($result['ptnr_job_edu'])?>
+                        </div> 
+                        <div class="col-sm-6 form-group">
+                            <label>Partners Economical status</label><br>
+                                 <?php if($result['ptnr_eco'] == 1) {?>Poor<?php }elseif($result['ptnr_eco'] == 2){?> Medium<?php }else{?> Rich<?php }?>
+                        </div>
+                    </div> 
+                    <div class="row">  
+                    <div class="col-sm-3 form-group">
+                                <label>Second marriage interested or not</label><br>
+                                <?php if($result['sec_interest'] == 1) { 
+                                 ?>Yes<?php }else{?>No
+                                    <?php }?>
+
                         </div>
                     </div> 
                 <?php endforeach; ?>                                                                    
             </div>
         </div>
+        <a  class="btn btn-danger" href="/delete?pid=<?php echo $_GET['pid']?>">Delete</a>
     </div>
 </div>
 <?php $content = ob_get_clean() ?>
