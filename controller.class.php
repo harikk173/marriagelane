@@ -215,8 +215,6 @@ class AdminController extends Database {
 			':sec_interest' => $_POST['sec_interest'],
 		);
 		$result = $this->query_execute($query,$arr);
-		$id = $this->lastId;
-		$this->upload_img($id);
 		header("Location:http://marriagelane.local/");
 	}
 

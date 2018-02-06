@@ -44,11 +44,7 @@
                         </select>
                     </div>
                 </div>	
-                <div class="row">													
-                    <div class="col-sm-6 form-group">
-                        <label for="fileToUpload">Upload Kuripp</label></td>
-                        <input type="file" name="fileToUpload"  class="form-control" required>
-                    </div>	
+                <div class="row">														
                     <div class="col-sm-3 form-group">
                         <label>Kuripp Time</label>
                         <input type="text" id ="kuripp_time" name="kuripp_time" value="<?php echo $results['kuripp_time']?>" class="form-control">
