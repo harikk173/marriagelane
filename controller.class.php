@@ -71,8 +71,9 @@ class AdminController extends Database {
 		require 'profile.tpl.php';
 	}
 	public function insert() {
-		$query = "INSERT INTO `candidates`(`name`, `email`, `phone`, `address`, `dob`, `age`, `sex`, `religion`) VALUES (:name,:email,:phone,:address,:dob,:age,:sex,:religion)";
+		$query = "INSERT INTO `candidates`(`reg`,`name`, `email`, `phone`, `address`, `dob`, `age`, `sex`, `religion`) VALUES (:reg,:name,:email,:phone,:address,:dob,:age,:sex,:religion)";
 		$arr = array(
+			':reg' => $_POST['reg'],
 			':name' => $_POST['name'],
 			':email' => $_POST['email'],
 			':phone' => $_POST['phone'],
@@ -167,25 +168,26 @@ class AdminController extends Database {
 		$arr = array(
 			':userid' => $_GET['pid'],
 		);
-		$results = $this->query_execute($query,$arr);
+		$result = $this->query_execute($query,$arr);
 		require_once 'updatepeople.tpl.php';
 	}
 	public function Update_people() {
-		$query = "UPDATE `candidates` SET `name`=:name, `email`=:email, `phone`=:phone, `address`=:address, `dob`=:dob, `age`=:age, `sex`=:sex,`religion`=:religion)";
+		$query = "UPDATE `candidates` SET `name`=:name, `email`=:email, `phone`=:phone, `address`=:address, `dob`=:dob, `age`=:age, `sex`=:sex,`religion`=:religion WHERE id=:id";
 		$arr = array(
 			':name' => $_POST['name'],
 			':email' => $_POST['email'],
 			':phone' => $_POST['phone'],
 			':address' => $_POST['address'],
-			':dob' => $_POST['age'],
+			':age' => $_POST['age'],
+			':dob' => $_POST['dob'],
 			':sex' => $_POST['sex'],
 			':religion' => $_POST['religion'],
+			':id' => $_GET['userid']
 		);
 		$result = $this->query_execute($query,$arr);
-		$id = $this->lastId;
 		$query = "UPDATE `other_det` SET `sec_marr`=:sec_marr, `star`=:star,`shishtadhasa`=:shishtadhasa,`height`=:height,`color`=:color,`bgroup`=:bgroup,`body_type`=:body_type,`other_health_det`=:other_health_det,`educational`=:educational,`job`=:job,`horscop_simlr`=:horscop_simlr,`economical`=:economical,`horscop_status`=:horscop_status,`fathername`=:fathername,`father_occupation`=:father_occupation,`salary`=:salary,`mothername`=:mothername,`motheraddr`=:motheraddr,`no_br`=:no_br,`no_sis`=:no_sis,`kuripp_time`=:kuripp_time, `abt_ptnr`=:abt_ptnr,`ptnr_job_edu`=:ptnr_job_edu,`ptnr_eco`=:ptnr_eco,`sec_interest`=:sec_interest WHERE `userid`=:userid";
 		$arr = array(
-			':userid' => $id,
+			':userid' => $_GET['userid'],
 			':sec_marr' => $_POST['sec_marr'],
 			':star' => $_POST['star'],
 			':shishtadhasa' => $_POST['shishtadhasa'],

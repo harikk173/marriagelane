@@ -79,6 +79,9 @@
                     <div class="pull-left">
                       <a href="/add" class="btn btn-default btn-flat">Add</a>
                     </div>
+                    <div class="pull-left">
+                      <a href="/filter" class="btn btn-default btn-flat">filter</a>
+                    </div>
             <?php endif ?>      
                   <div class="pull-right">
                     <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
