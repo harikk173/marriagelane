@@ -9,7 +9,9 @@
   <form role="form" action="http://marriagelane.local/new_registration" onsubmit="return Validate()" method="POST"  enctype="multipart/form-data">
     <!-- text input -->
     <div class="container">
-    <h1 class="well">Personal Info</h1>
+    <h1 class="well">ശ്രദ്ധിക്കുക:</h1>
+    <p class="well">എല്ലാ കളങ്ങളും വിടാതെ പൂരിപ്പിക്കുക</p> 
+ <p class="well">ജാതകകുറിപ്പ്  മറക്കാതെ  പറഞ്ഞസ്ഥലത്  അപ്‌ലോഡ്  ചെയ്യുക </p>
     <div class="col-lg-12 well">
         <div class="row">		
             <div class="col-sm-12">     
