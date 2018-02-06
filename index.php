@@ -51,6 +51,12 @@ elseif ('/new_registration' == $uri && isset($_SESSION['id'])) {
   //show home page or login page
   $Controller->insert();
 }
+elseif('/filter' == $uri && isset($_SESSION['admin'])){
+  $Controller->filter();
+}
+elseif('/filtered' == $uri && isset($_SESSION['admin'])){
+  $Controller->filtered();
+}
 elseif ('/logout' == $uri) {
   $Controller->logout();
 }

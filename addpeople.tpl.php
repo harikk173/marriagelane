@@ -84,7 +84,35 @@
                         <div class="row">
                             <div class="col-sm-3 form-group">
                                 <label>Star</label>
-                                <input type="text" id ="star" name="star"  class="form-control">
+                                <select id ="star" name="star"  class="form-control">
+                                    <option value="Aswathy ">Aswathy </option>
+                                    <option value="Bharany">Bharany</option>
+                                    <option value="Karthika ">Karthika </option>
+                                    <option value="Rohini ">Rohini </option>
+                                    <option value="Makayiram ">Makayiram </option>
+                                    <option value="Thiruvathira ">Thiruvathira </option>
+                                    <option value="Punartham ">Punartham </option>
+                                    <option value="Pooyam">Pooyam</option>
+                                    <option value="Ayilyam">Ayilyam </option>
+                                    <option value="Makom">Makom</option>
+                                    <option value="Pooram">Pooram</option>
+                                    <option value="Uthram">Uthram</option>
+                                    <option value="Atham">Atham</option>
+                                    <option value="Chithira">Chithira</option>
+                                    <option value="Chothy">Chothy</option>
+                                    <option value="Vishakom ">Vishakom </option>
+                                    <option value="Anizham">Anizham</option>
+                                    <option value="Thrikeeta ">Thrikeeta </option>
+                                    <option value="Moolam">Moolam</option>
+                                    <option value="Pooradam ">Pooradam </option>
+                                    <option value="Uthradam ">Uthradam </option>
+                                    <option value="Thiruvonam ">Thiruvonam </option>
+                                    <option value="Avittam">Avittam</option>
+                                    <option value="Chathayam ">Dhosham</option>
+                                    <option value="Pooruruttathy ">Pooruruttathy </option>
+                                    <option value="Uthrattathy ">Uthrattathy </option>
+                                    <option value="Revathy">Revathy</option>
+                                </select>
                             </div>		
                             <div class="col-sm-3 form-group">
                                 <label>Color</label>

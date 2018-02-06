@@ -217,4 +217,22 @@ class AdminController extends Database {
 		$this->upload_img($id);
 		header("Location:http://marriagelane.local/");
 	}
+
+	public function filter(){
+		require_once 'filterpeople.tpl.php';
+	}
+	public function filtered(){
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sex=:sex AND c.age=:age AND c.religion=:religion AND o.star=:star AND o.horscop_simlr=:Jathakam AND o.horscop_status=:horscop_status AND o.economical=:economical";
+		$arr = array(
+			':star' => $_POST['star'],
+			':age' => $_POST['age'],
+			':religion' => $_POST['caste'],
+			':star' => $_POST['star'],
+			':Jathakam' => $_POST['Jathakam'],
+			':economical' => $_POST['economical'],
+			':horscop_status' => $_POST['horscop_status']
+		);
+		$result = $this->query_execute($query, $arr);
+		return $result;
+	}	
 }
