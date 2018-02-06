@@ -71,7 +71,7 @@
                         </div>    
                         <div class="col-sm-3 form-group">
                             <label>Colour</label><br>
-                            <?= htmlentities($result['color'])?>
+                            <?php if($result['color'] == 1) {?>White<?php }elseif($result['color'] == 2){?> Dual tone<?php }else{?> Black<?php }?>
                         </div>
                     </div>
                     <div class="row">
@@ -91,7 +91,9 @@
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label>Jathakaporutham</label><br>
-                            <?= htmlentities($result['horscop_simlr'])?>
+                            <?php if($result['horscop_simlr'] == 0) { 
+                                 ?>നിര്ബന്ധമില്ല<?php }else{?>നിർബന്ധം
+                                    <?php }?>
                         </div>      
                         <div class="col-sm-6 form-group">
                             <label>Father's Name</label><br>
