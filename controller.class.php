@@ -256,7 +256,7 @@ class AdminController extends Database {
 	}	
 
 	public function filt_punnarvivaham(){
-		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sec_marr=:sec_marr";
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE o.sec_marr=:sec_marr";
 		$arr = array(
 			':sec_marr' => "1",
 		);
