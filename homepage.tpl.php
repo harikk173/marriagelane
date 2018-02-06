@@ -12,7 +12,7 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
+      <div class="box" style="overflow: scroll !important;">
         <div class="box-header">
           <h3 class="box-title">Full list</h3>
         </div>
