@@ -31,7 +31,7 @@
             <tbody>
               <?php foreach($candidates as $candidate):?>
                 <tr>
-                  <td><?=$candidate['id']?></td>
+                  <td><?=$candidate['reg']?></td>
                   <td><a href="/showprofile?pid=<?= $candidate['id']?>"><?= $candidate['name']?></a></td>
                   <td><?= $candidate['email']?></td>
                   <td><?=$candidate['phone']?></td>

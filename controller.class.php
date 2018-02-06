@@ -236,7 +236,8 @@ class AdminController extends Database {
 		);
 		$candidates = $this->query_execute($query, $arr);
 		require_once 'filterpeople.tpl.php';
-	}	
+	}
+
 
 	public function delete(){
 		$query = "DELETE  FROM `candidates` WHERE id=:userid";
