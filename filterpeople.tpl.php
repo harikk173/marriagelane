@@ -1,5 +1,7 @@
 <?php ob_start()?>
-
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
 <form role="form" action="http://marriagelane.local/filtered" method="POST">
     <label>Gender</label>
         <select id ="sex" name="sex"  class="form-control">
@@ -59,6 +61,8 @@
         </select>    
     <button type="submit" class="btn btn-primary pull-right">Submit</button>
 </form>
+</div>
+<div class="col-md-12">
 <section class="content-header">
   <h1>
     Full list
@@ -114,5 +118,6 @@
 </section>
 <!-- /.content -->
 <!-- /.box -->
+</div>
 <?php $content=ob_get_clean();?>
 <?php include 'layout.tpl.php'?>
