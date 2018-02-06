@@ -60,6 +60,15 @@ elseif('/filtered' == $uri && isset($_SESSION['admin'])){
 elseif('/delete' == $uri && isset($_SESSION['admin'])){
   $Controller->delete();
 }
+elseif('/filt_male' == $uri && isset($_SESSION['admin'])){
+  $Controller->filt_male();
+}
+elseif('/filt_female' == $uri && isset($_SESSION['admin'])){
+  $Controller->filt_female();
+}
+elseif('/filt_punnarvivaham' == $uri && isset($_SESSION['admin'])){
+  $Controller->filt_punnarvivaham();
+}
 elseif ('/logout' == $uri) {
   $Controller->logout();
 }

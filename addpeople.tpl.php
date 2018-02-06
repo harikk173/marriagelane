@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-sm-3 form-group">
                         <label>Register Number</label>
-                        <input type="text" placeholder="Enter Email Address Here.." id ="reg" name="reg"  class="form-control" required>
+                        <input type="text" placeholder="Enter Reg Number Here.." id ="reg" name="reg"  class="form-control" required>
                     </div>
                     <div class="col-sm-3 form-group">
                         <label>Gender</label>

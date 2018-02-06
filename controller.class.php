@@ -237,6 +237,32 @@ class AdminController extends Database {
 		$candidates = $this->query_execute($query, $arr);
 		require_once 'filterpeople.tpl.php';
 	}	
+	public function filt_male(){
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sex=:sex ";
+		$arr = array(
+			':sex' => "1",
+		);
+		$candidates = $this->query_execute($query, $arr);
+		require_once 'homepage.tpl.php';
+	}	
+
+	public function filt_female(){
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sex=:sex ";
+		$arr = array(
+			':sex' => "2",
+		);
+		$candidates = $this->query_execute($query, $arr);
+		require_once 'homepage.tpl.php';
+	}	
+
+	public function filt_punnarvivaham(){
+		$query = "SELECT * FROM `candidates` as `c` JOIN `other_det` as `o` ON c.id=o.userid WHERE c.sec_marr=:sec_marr";
+		$arr = array(
+			':sec_marr' => "1",
+		);
+		$candidates = $this->query_execute($query, $arr);
+		require_once 'homepage.tpl.php';
+	}	
 
 	public function delete(){
 		$query = "DELETE  FROM `candidates` WHERE id=:userid";
